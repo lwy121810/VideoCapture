@@ -1,0 +1,537 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C30F3BE41E6FE3B70059B4D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30F3BE31E6FE3B70059B4D3 /* AppDelegate.swift */; };
+		C30F3BE61E6FE3B70059B4D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30F3BE51E6FE3B70059B4D3 /* ViewController.swift */; };
+		C30F3BE91E6FE3B70059B4D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C30F3BE71E6FE3B70059B4D3 /* Main.storyboard */; };
+		C30F3BEB1E6FE3B70059B4D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C30F3BEA1E6FE3B70059B4D3 /* Assets.xcassets */; };
+		C30F3BEE1E6FE3B70059B4D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C30F3BEC1E6FE3B70059B4D3 /* LaunchScreen.storyboard */; };
+		C30F3BF91E6FE3B70059B4D3 /* VideoCapture_____Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30F3BF81E6FE3B70059B4D3 /* VideoCapture_____Tests.swift */; };
+		C30F3C041E6FE3B70059B4D3 /* VideoCapture_____UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30F3C031E6FE3B70059B4D3 /* VideoCapture_____UITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C30F3BF51E6FE3B70059B4D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C30F3BD81E6FE3B70059B4D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C30F3BDF1E6FE3B70059B4D3;
+			remoteInfo = "VideoCapture-视频采集";
+		};
+		C30F3C001E6FE3B70059B4D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C30F3BD81E6FE3B70059B4D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C30F3BDF1E6FE3B70059B4D3;
+			remoteInfo = "VideoCapture-视频采集";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C30F3BE01E6FE3B70059B4D3 /* VideoCapture-视频采集.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VideoCapture-视频采集.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C30F3BE31E6FE3B70059B4D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C30F3BE51E6FE3B70059B4D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C30F3BE81E6FE3B70059B4D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C30F3BEA1E6FE3B70059B4D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C30F3BED1E6FE3B70059B4D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C30F3BEF1E6FE3B70059B4D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C30F3BF41E6FE3B70059B4D3 /* VideoCapture-视频采集Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VideoCapture-视频采集Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C30F3BF81E6FE3B70059B4D3 /* VideoCapture_____Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VideoCapture_____Tests.swift"; sourceTree = "<group>"; };
+		C30F3BFA1E6FE3B70059B4D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C30F3BFF1E6FE3B70059B4D3 /* VideoCapture-视频采集UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VideoCapture-视频采集UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C30F3C031E6FE3B70059B4D3 /* VideoCapture_____UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VideoCapture_____UITests.swift"; sourceTree = "<group>"; };
+		C30F3C051E6FE3B70059B4D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C30F3BDD1E6FE3B70059B4D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C30F3BF11E6FE3B70059B4D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C30F3BFC1E6FE3B70059B4D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C30F3BD71E6FE3B70059B4D3 = {
+			isa = PBXGroup;
+			children = (
+				C30F3BE21E6FE3B70059B4D3 /* VideoCapture-视频采集 */,
+				C30F3BF71E6FE3B70059B4D3 /* VideoCapture-视频采集Tests */,
+				C30F3C021E6FE3B70059B4D3 /* VideoCapture-视频采集UITests */,
+				C30F3BE11E6FE3B70059B4D3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C30F3BE11E6FE3B70059B4D3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C30F3BE01E6FE3B70059B4D3 /* VideoCapture-视频采集.app */,
+				C30F3BF41E6FE3B70059B4D3 /* VideoCapture-视频采集Tests.xctest */,
+				C30F3BFF1E6FE3B70059B4D3 /* VideoCapture-视频采集UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C30F3BE21E6FE3B70059B4D3 /* VideoCapture-视频采集 */ = {
+			isa = PBXGroup;
+			children = (
+				C30F3BE31E6FE3B70059B4D3 /* AppDelegate.swift */,
+				C30F3BE51E6FE3B70059B4D3 /* ViewController.swift */,
+				C30F3BE71E6FE3B70059B4D3 /* Main.storyboard */,
+				C30F3BEA1E6FE3B70059B4D3 /* Assets.xcassets */,
+				C30F3BEC1E6FE3B70059B4D3 /* LaunchScreen.storyboard */,
+				C30F3BEF1E6FE3B70059B4D3 /* Info.plist */,
+			);
+			path = "VideoCapture-视频采集";
+			sourceTree = "<group>";
+		};
+		C30F3BF71E6FE3B70059B4D3 /* VideoCapture-视频采集Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C30F3BF81E6FE3B70059B4D3 /* VideoCapture_____Tests.swift */,
+				C30F3BFA1E6FE3B70059B4D3 /* Info.plist */,
+			);
+			path = "VideoCapture-视频采集Tests";
+			sourceTree = "<group>";
+		};
+		C30F3C021E6FE3B70059B4D3 /* VideoCapture-视频采集UITests */ = {
+			isa = PBXGroup;
+			children = (
+				C30F3C031E6FE3B70059B4D3 /* VideoCapture_____UITests.swift */,
+				C30F3C051E6FE3B70059B4D3 /* Info.plist */,
+			);
+			path = "VideoCapture-视频采集UITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C30F3BDF1E6FE3B70059B4D3 /* VideoCapture-视频采集 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C30F3C081E6FE3B70059B4D3 /* Build configuration list for PBXNativeTarget "VideoCapture-视频采集" */;
+			buildPhases = (
+				C30F3BDC1E6FE3B70059B4D3 /* Sources */,
+				C30F3BDD1E6FE3B70059B4D3 /* Frameworks */,
+				C30F3BDE1E6FE3B70059B4D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "VideoCapture-视频采集";
+			productName = "VideoCapture-视频采集";
+			productReference = C30F3BE01E6FE3B70059B4D3 /* VideoCapture-视频采集.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C30F3BF31E6FE3B70059B4D3 /* VideoCapture-视频采集Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C30F3C0B1E6FE3B70059B4D3 /* Build configuration list for PBXNativeTarget "VideoCapture-视频采集Tests" */;
+			buildPhases = (
+				C30F3BF01E6FE3B70059B4D3 /* Sources */,
+				C30F3BF11E6FE3B70059B4D3 /* Frameworks */,
+				C30F3BF21E6FE3B70059B4D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C30F3BF61E6FE3B70059B4D3 /* PBXTargetDependency */,
+			);
+			name = "VideoCapture-视频采集Tests";
+			productName = "VideoCapture-视频采集Tests";
+			productReference = C30F3BF41E6FE3B70059B4D3 /* VideoCapture-视频采集Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C30F3BFE1E6FE3B70059B4D3 /* VideoCapture-视频采集UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C30F3C0E1E6FE3B70059B4D3 /* Build configuration list for PBXNativeTarget "VideoCapture-视频采集UITests" */;
+			buildPhases = (
+				C30F3BFB1E6FE3B70059B4D3 /* Sources */,
+				C30F3BFC1E6FE3B70059B4D3 /* Frameworks */,
+				C30F3BFD1E6FE3B70059B4D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C30F3C011E6FE3B70059B4D3 /* PBXTargetDependency */,
+			);
+			name = "VideoCapture-视频采集UITests";
+			productName = "VideoCapture-视频采集UITests";
+			productReference = C30F3BFF1E6FE3B70059B4D3 /* VideoCapture-视频采集UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C30F3BD81E6FE3B70059B4D3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = yons;
+				TargetAttributes = {
+					C30F3BDF1E6FE3B70059B4D3 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 6PKRU8JWQ6;
+						ProvisioningStyle = Automatic;
+					};
+					C30F3BF31E6FE3B70059B4D3 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 6PKRU8JWQ6;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C30F3BDF1E6FE3B70059B4D3;
+					};
+					C30F3BFE1E6FE3B70059B4D3 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 6PKRU8JWQ6;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C30F3BDF1E6FE3B70059B4D3;
+					};
+				};
+			};
+			buildConfigurationList = C30F3BDB1E6FE3B70059B4D3 /* Build configuration list for PBXProject "VideoCapture-视频采集" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C30F3BD71E6FE3B70059B4D3;
+			productRefGroup = C30F3BE11E6FE3B70059B4D3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C30F3BDF1E6FE3B70059B4D3 /* VideoCapture-视频采集 */,
+				C30F3BF31E6FE3B70059B4D3 /* VideoCapture-视频采集Tests */,
+				C30F3BFE1E6FE3B70059B4D3 /* VideoCapture-视频采集UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C30F3BDE1E6FE3B70059B4D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C30F3BEE1E6FE3B70059B4D3 /* LaunchScreen.storyboard in Resources */,
+				C30F3BEB1E6FE3B70059B4D3 /* Assets.xcassets in Resources */,
+				C30F3BE91E6FE3B70059B4D3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C30F3BF21E6FE3B70059B4D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C30F3BFD1E6FE3B70059B4D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C30F3BDC1E6FE3B70059B4D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C30F3BE61E6FE3B70059B4D3 /* ViewController.swift in Sources */,
+				C30F3BE41E6FE3B70059B4D3 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C30F3BF01E6FE3B70059B4D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C30F3BF91E6FE3B70059B4D3 /* VideoCapture_____Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C30F3BFB1E6FE3B70059B4D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C30F3C041E6FE3B70059B4D3 /* VideoCapture_____UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C30F3BF61E6FE3B70059B4D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C30F3BDF1E6FE3B70059B4D3 /* VideoCapture-视频采集 */;
+			targetProxy = C30F3BF51E6FE3B70059B4D3 /* PBXContainerItemProxy */;
+		};
+		C30F3C011E6FE3B70059B4D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C30F3BDF1E6FE3B70059B4D3 /* VideoCapture-视频采集 */;
+			targetProxy = C30F3C001E6FE3B70059B4D3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C30F3BE71E6FE3B70059B4D3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C30F3BE81E6FE3B70059B4D3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C30F3BEC1E6FE3B70059B4D3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C30F3BED1E6FE3B70059B4D3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C30F3C061E6FE3B70059B4D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C30F3C071E6FE3B70059B4D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C30F3C091E6FE3B70059B4D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6PKRU8JWQ6;
+				INFOPLIST_FILE = "VideoCapture-视频采集/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "WY.VideoCapture-----";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		C30F3C0A1E6FE3B70059B4D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6PKRU8JWQ6;
+				INFOPLIST_FILE = "VideoCapture-视频采集/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "WY.VideoCapture-----";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		C30F3C0C1E6FE3B70059B4D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 6PKRU8JWQ6;
+				INFOPLIST_FILE = "VideoCapture-视频采集Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "WY.VideoCapture-----Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VideoCapture-视频采集.app/VideoCapture-视频采集";
+			};
+			name = Debug;
+		};
+		C30F3C0D1E6FE3B70059B4D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 6PKRU8JWQ6;
+				INFOPLIST_FILE = "VideoCapture-视频采集Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "WY.VideoCapture-----Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VideoCapture-视频采集.app/VideoCapture-视频采集";
+			};
+			name = Release;
+		};
+		C30F3C0F1E6FE3B70059B4D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 6PKRU8JWQ6;
+				INFOPLIST_FILE = "VideoCapture-视频采集UITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "WY.VideoCapture-----UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "VideoCapture-视频采集";
+			};
+			name = Debug;
+		};
+		C30F3C101E6FE3B70059B4D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 6PKRU8JWQ6;
+				INFOPLIST_FILE = "VideoCapture-视频采集UITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "WY.VideoCapture-----UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "VideoCapture-视频采集";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C30F3BDB1E6FE3B70059B4D3 /* Build configuration list for PBXProject "VideoCapture-视频采集" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C30F3C061E6FE3B70059B4D3 /* Debug */,
+				C30F3C071E6FE3B70059B4D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C30F3C081E6FE3B70059B4D3 /* Build configuration list for PBXNativeTarget "VideoCapture-视频采集" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C30F3C091E6FE3B70059B4D3 /* Debug */,
+				C30F3C0A1E6FE3B70059B4D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C30F3C0B1E6FE3B70059B4D3 /* Build configuration list for PBXNativeTarget "VideoCapture-视频采集Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C30F3C0C1E6FE3B70059B4D3 /* Debug */,
+				C30F3C0D1E6FE3B70059B4D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C30F3C0E1E6FE3B70059B4D3 /* Build configuration list for PBXNativeTarget "VideoCapture-视频采集UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C30F3C0F1E6FE3B70059B4D3 /* Debug */,
+				C30F3C101E6FE3B70059B4D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C30F3BD81E6FE3B70059B4D3 /* Project object */;
+}
