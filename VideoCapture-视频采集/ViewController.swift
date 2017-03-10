@@ -8,6 +8,20 @@
 
 import UIKit
 import AVFoundation
+import AssetsLibrary
+
+
+/**
+ AVCaptureSession：媒体（音、视频）捕获会话，负责把捕获的音视频数据输出到输出设备中。一个AVCaptureSession可以有多个输入输出：
+ AVCaptureDevice：输入设备，包括麦克风、摄像头，通过该对象可以设置物理设备的一些属性（例如相机聚焦、白平衡等）。
+ AVCaptureDeviceInput：设备输入数据管理对象，可以根据AVCaptureDevice创建对应的AVCaptureDeviceInput对象，该对象将会被添加到AVCaptureSession中管理。
+ 
+ AVCaptureOutput：输出数据管理对象，用于接收各类输出数据，通常使用对应的子类AVCaptureAudioDataOutput、AVCaptureStillImageOutput、AVCaptureVideoDataOutput、AVCaptureFileOutput，该对象将会被添加到AVCaptureSession中管理。注意：前面几个对象的输出数据都是NSData类型，而AVCaptureFileOutput代表数据以文件形式输出，类似的，AVCcaptureFileOutput也不会直接创建使用，通常会使用其子类：AVCaptureAudioFileOutput、AVCaptureMovieFileOutput。当把一个输入或者输出添加到AVCaptureSession之后AVCaptureSession就会在所有相符的输入、输出设备之间建立连接（AVCaptionConnection）：
+ AVCaptureVideoPreviewLayer：相机拍摄预览图层，是CALayer的子类，使用该对象可以实时查看拍照或视频录制效果，创建该对象需要指定对应的AVCaptureSession对象。
+ 
+ 
+ 
+ */
 class ViewController: UIViewController {
 
     fileprivate lazy var videoQueue = DispatchQueue.global()
@@ -22,43 +36,98 @@ class ViewController: UIViewController {
     fileprivate  lazy var previewLayer : AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer(session: self.session)
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupDevice()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        session.startRunning()
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        session.stopRunning()
+    }
+}
+
+
+
+
+// MARK:- 设置设备初始化值
+extension ViewController {
+    fileprivate func setupDevice() {
+        //1. 创建输入设备 后置摄像头
+        guard let captureDevices = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo) as? [AVCaptureDevice] else {
+            print("摄像头不可用")
+            return;
+        }
+        guard let device = captureDevices.filter({ $0.position == .front }).first else { return }
+        //2.根据输入设备创建数据输入管理对象 相机输入源
+        guard let cameraVideoInput = try? AVCaptureDeviceInput(device: device) else { return }
+        videoInput = cameraVideoInput
+        
+        //3.创建话筒输入源
+        //3.1.获得话筒设备
+        guard let audioCaptureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeAudio) else { return }
+        //3.2.根据设备创建话筒输入源
+        guard let audioInput = try? AVCaptureDeviceInput(device: audioCaptureDevice) else { return }
+        
+        
+        //4.初始化输出源
+        let movieOutput = AVCaptureMovieFileOutput()
+        self.movieOutput = movieOutput
+        
+        //4.1.设置写入的稳定性 不设置的话也可以写入 不过一般都设置一下
+        let connection = movieOutput.connection(withMediaType: AVMediaTypeVideo)
+        connection?.preferredVideoStabilizationMode = .auto
+        
+        //5.添加输入源
+        if session.canAddInput(cameraVideoInput) {
+            session.addInput(cameraVideoInput)
+            
+        }
+        //        guard let connection = movieOutput?.connection(withMediaType: AVMediaTypeVideo) else { return }
+        //
+        //        if (connection.isVideoStabilizationSupported) {
+        //            connection.preferredVideoStabilizationMode = .auto
+        //        }
+        if session.canAddInput(audioInput) {
+            session.addInput(audioInput)
+        }
+        
+        //6.添加输出源
+        if session.canAddOutput(movieOutput) {
+            session.addOutput(movieOutput)
+        }
+        
+        previewLayer.frame = view.bounds
+        previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+        view.layer.insertSublayer(previewLayer, at: 0)
+        
+        addNotitficationToDevice(device: device)
+        
     }
 }
 
 extension ViewController {
     // MARK:- 开始采集视频
     @IBAction func startCapture(_ sender: Any) {
-        //1.设置视频的输入&输出
-        setupVideo()
-        
-        //2.设置音频的输入输出
-        setupAudio()
-        
-        //3.添加写入文件的output
-        let movieOutput = AVCaptureMovieFileOutput()
-        session.addOutput(movieOutput)
-        self.movieOutput = movieOutput
-        
-        //3.1.设置写入的稳定性 不设置的话也可以写入 不过一般都设置一下
-        let connection = movieOutput.connection(withMediaType: AVMediaTypeVideo)
-        connection?.preferredVideoStabilizationMode = .auto
-        
-        //4.给用户看到一个预览图层
-        previewLayer.frame = view.bounds
-//        view.layer.addSublayer(previewLayer)
-        view.layer.insertSublayer(previewLayer, at: 0)
-        
-        //5.开始采集
+        if session.isRunning {
+            return;
+        }
         session.startRunning()
-        
-        //6.开始将采集到的画面写入到文件中
-        //6.1.创建一个沙盒路径
+        view.layer.insertSublayer(previewLayer, at: 0)
+        //.创建一个沙盒路径
         let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first! + "/movie.mp4"
-        //6.2.根据路径创建URL
+        
         let url = URL(fileURLWithPath: path)
-        //6.3.写入到文件
-        movieOutput.startRecording(toOutputFileURL: url, recordingDelegate: self)
+        movieOutput?.startRecording(toOutputFileURL:url , recordingDelegate: self)
         
     }
     
@@ -70,44 +139,96 @@ extension ViewController {
         
         previewLayer.removeFromSuperlayer()
     }
-    
+    // MARK:- 得到相机设备
+    fileprivate func getCameraCaptureDeviceWithPosition(position : AVCaptureDevicePosition) -> AVCaptureDevice? {
+        guard let devices = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo) as? [AVCaptureDevice] else {
+            
+            return nil
+        }
+        
+        guard let device = devices.filter({ $0.position == position }).first else { return nil }
+        
+        return device
+    }
     // MARK:- 切换相机
     @IBAction func switchScene(_ sender: Any) {
-        //1.获取之前的镜头（是前置摄像头还是后置的）
-        guard var position = videoInput?.device.position else { return }
+        //1.获得原来的输入设备
+        guard let oldCaptureDevice = self.videoInput?.device else { return }
         
-        //2.获取当前应该显示的镜头
-        position = position == .front ? .back : .front
+        removeNotificationFromDevice(device: oldCaptureDevice)
         
-        //3.根据当前镜头创建Device
-        guard let devices = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo) as? [AVCaptureDevice] else { return }
-//        let device = devices.filter { ( device: AVCaptureDevice) -> Bool in
-//            return device.position == position
-//        }.first
-        //等同于上面的写法
-        guard let device = devices.filter({$0.position == position}).first else { return }
+        //2.获得原来的设备位置
+        let oldPositon = oldCaptureDevice.position
         
-        //4.根据当前Device创建input
-        guard let input = try? AVCaptureDeviceInput(device : device) else { return }
+        var currentPosition : AVCaptureDevicePosition = .front
         
-        //5.切换session中的input
-        //5.1.一般当切换input或者output的时候先开始配置
+        if oldPositon  == .front || oldPositon == .unspecified {
+            currentPosition = .back
+        }
+        
+        //3.根据位置创建输入设备
+        guard let currentCaptureDevice = getCameraCaptureDeviceWithPosition(position: currentPosition) else { return }
+        
+        addNotitficationToDevice(device: currentCaptureDevice)
+        //4.根据输入设备创建输入源
+        guard let currentCameraInput = try? AVCaptureDeviceInput(device: currentCaptureDevice) else {
+            print("获取相机失败")
+            return;
+        }
+        
+        
+        //5.切换输入源
+        //5.1.开启设置
         session.beginConfiguration()
-        
-        //5.2.移除原来的input
+        //5.2.移除原来的输入源
         session.removeInput(videoInput)
-        
-        //5.3.添加新的input
-        session.addInput(input)
-        
-        //5.4.提交配置
+        //5.3.添加现在的输入源
+        if session.canAddInput(currentCameraInput) {
+            session.addInput(currentCameraInput)
+            videoInput = currentCameraInput
+        }
+        //5.4.提交设置
         session.commitConfiguration()
-        
-        //6.记录当前的input
-        self.videoInput = input
     }
     
 }
+
+extension ViewController {
+    
+    /** 给输入设备添加通知 */
+    fileprivate func addNotitficationToDevice(device : AVCaptureDevice)  {
+        lockDevice { (captureDevice) in
+            captureDevice.isSubjectAreaChangeMonitoringEnabled = true
+        }
+        NotificationCenter.default.addObserver(self, selector: #selector(self.areaChanged(notification:)), name: NSNotification.Name.AVCaptureDeviceSubjectAreaDidChange, object: device)
+    }
+    // MARK:- 移除输入设备的通知
+    fileprivate func removeNotificationFromDevice(device : AVCaptureDevice) {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AVCaptureDeviceSubjectAreaDidChange, object: device)
+    }
+    
+    
+    /** 更改设备的属性的时候先锁定设备 （修改聚焦、闪光灯、曝光等属性的时候） */
+    fileprivate func lockDevice(closure:(_ captureDevice : AVCaptureDevice)->()) {
+        guard let captureDevice = videoInput?.device else { return }
+        
+        do {
+            try captureDevice.lockForConfiguration()
+            closure(captureDevice)
+            print("锁定设备成功")
+            captureDevice.unlockForConfiguration()
+            
+        } catch  {
+            print("锁定设备失败")
+            print(error)
+        }
+    }
+    // MARK:- 输入设备监控区域发生改变的时候的通知
+    @objc fileprivate func areaChanged(notification : Notification) {
+        print("监控区域发生变化")
+    }
+}
+// MARK:- 废弃的方法
 extension ViewController {
     // MARK:- 设置视频的输入输出
     fileprivate func setupVideo() {
@@ -128,7 +249,7 @@ extension ViewController {
         
         
         //2.3.将input添加到会话中
-        if self.videoInput == nil {
+        if session.canAddInput(videoInput) {
             session.addInput(videoInput)
         }
         
@@ -136,8 +257,11 @@ extension ViewController {
         //3.给捕捉会话设置输出源
         //3.1.创建输出源
         let output = AVCaptureVideoDataOutput()
+        //必须使用串行调度队列来保证视频帧按顺序传送。 sampleBufferCallbackQueue参数可能不为NULL，除非将sampleBufferDelegate设置为nil。
         output.setSampleBufferDelegate(self, queue: videoQueue)
-        session.addOutput(output)
+        if session.canAddOutput(output) {
+            session.addOutput(output)
+        }
         
         self.videoOutput = output
         
@@ -156,6 +280,7 @@ extension ViewController {
         //2.设置音频的输出源
         let output = AVCaptureAudioDataOutput()
         //2.1设置代理
+        //必须使用串行调度队列以保证音频样本将按顺序传送。 sampleBufferCallbackQueue参数可能不为NULL，但将sampleBufferDelegate设置为nil时除外。
         output.setSampleBufferDelegate(self, queue: audioQueue)
         //2.2.添加输出源到会话
         session.addOutput(output)
@@ -171,17 +296,27 @@ extension ViewController : AVCaptureAudioDataOutputSampleBufferDelegate {
 extension ViewController : AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
         //CMSampleBuffer就是每一帧的画面
-        //        print("已经采集到画面")
+        print("已经采集到画面")
     }
 }
 
-// MARK:- 写入文件 AVCaptureFileOutputRecordingDelegate
+// MARK:- 写入文件 输出源的代理  AVCaptureFileOutputRecordingDelegate
 extension ViewController : AVCaptureFileOutputRecordingDelegate {
     func capture(_ captureOutput: AVCaptureFileOutput!, didStartRecordingToOutputFileAt fileURL: URL!, fromConnections connections: [Any]!) {
         print("开始写入")
     }
-    
+    /** 必须实现的代理 */
     func capture(_ captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: URL!, fromConnections connections: [Any]!, error: Error!) {
         print("end写入")
+        let assets = ALAssetsLibrary()
+        assets.writeVideoAtPath(toSavedPhotosAlbum: outputFileURL) { (assetURL, error) in
+            if ((error ) != nil) {
+                print("保存视频失败")
+                return;
+            }
+            
+            print("保存视频成功")
+        }
+        
     }
 }
